@@ -1,1 +1,89 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sed Guru</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ctp-base': '#1E1E2E',
+                        'ctp-mantle': '#181825',
+                        'ctp-text': '#CDD6F4',
+                        'ctp-lavender': '#B4BEFE',
+                        'ctp-blue': '#89B4FA',
+                        'ctp-surface0': '#313244',
+                        'ctp-surface1': '#45475A',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .page-label {
+            clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+        }
+    </style>
+</head>
+<body class="bg-ctp-mantle text-ctp-text min-h-screen flex flex-col items-center p-6">
+    <div class="w-full max-w-4xl">
+        <!-- Header with Title and Made By Link -->
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-4xl font-bold text-center flex-grow text-ctp-lavender">
+                🐱 Sed Guru: Master Your Stream Editor
+            </h1>
+            <a href="https://awendland.co.uk/" target="_blank" 
+               class="bg-ctp-blue hover:bg-ctp-lavender text-ctp-base font-bold py-2 px-4 rounded-full">
+                Made by Alex
+            </a>
+        </div>
+
+        <!-- Sed Command Input -->
+        <div class="mb-6">
+            <input type="text" id="sed-command" 
+                   placeholder="Enter your sed command" 
+                   class="w-full p-3 text-center text-xl bg-ctp-surface0 text-ctp-text border-2 border-ctp-surface1 rounded-full focus:outline-none focus:ring-2 focus:ring-ctp-blue">
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="flex justify-center space-x-4 mb-6">
+            <button id="back-btn" class="w-16 h-16 bg-ctp-surface0 text-3xl rounded-full opacity-50 cursor-not-allowed">⏪</button>
+            <button id="play-btn" class="w-16 h-16 bg-ctp-blue text-3xl text-ctp-base rounded-full">▶️</button>
+            <button id="pause-btn" class="w-16 h-16 bg-ctp-surface0 text-3xl rounded-full opacity-50 cursor-not-allowed">⏸️</button>
+            <button id="forward-btn" class="w-16 h-16 bg-ctp-surface0 text-3xl rounded-full opacity-50 cursor-not-allowed">⏩</button>
+        </div>
+
+        <!-- Pattern and Buffer with Page Labels -->
+        <div class="space-y-4">
+            <div class="relative">
+                <div class="page-label absolute -top-3 left-4 bg-ctp-surface1 text-ctp-text px-4 py-1 text-sm rounded-t-lg">Pattern</div>
+                <input type="text" id="pattern-display" 
+                       readonly 
+                       class="w-full p-3 bg-ctp-surface0 text-ctp-text border-2 border-ctp-surface1 rounded-lg">
+            </div>
+
+            <div class="relative">
+                <div class="page-label absolute -top-3 left-4 bg-ctp-surface1 text-ctp-text px-4 py-1 text-sm rounded-t-lg">Buffer</div>
+                <input type="text" id="buffer-display" 
+                       readonly 
+                       class="w-full p-3 bg-ctp-surface0 text-ctp-text border-2 border-ctp-surface1 rounded-lg">
+            </div>
+
+            <div class="relative">
+                <div class="page-label absolute -top-3 left-4 bg-ctp-surface1 text-ctp-text px-4 py-1 text-sm rounded-t-lg">Standard In</div>
+                <textarea id="standard-in" 
+                          class="w-full p-3 bg-white text-ctp-base border-2 border-ctp-surface1 rounded-lg h-48"></textarea>
+            </div>
+
+            <div class="relative">
+                <div class="page-label absolute -top-3 left-4 bg-ctp-surface1 text-ctp-text px-4 py-1 text-sm rounded-t-lg">Standard Out</div>
+                <textarea id="standard-out" 
+                          readonly 
+                          class="w-full p-3 bg-ctp-surface0 text-ctp-text border-2 border-ctp-surface1 rounded-lg h-48"></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
